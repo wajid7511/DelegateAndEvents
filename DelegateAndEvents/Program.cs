@@ -1,4 +1,6 @@
 ﻿
+using DelegateAndEvents;
+
 static void SubscribeToDelegateAndEvenet(CustomerOrder customerOrder)
 {
     customerOrder.OrderMessageEvent += PrintMessage;
@@ -49,3 +51,9 @@ customerOrder.PlaceOrder(3);
 
 UnSubscribeToDelegateAndEvenet(customerOrder);
 
+
+//Another Example 
+Publisher publisher = new();
+Subscriber subscriber = new();
+publisher.OnChange += subscriber.OnPublisherChange;
+publisher.Change();
